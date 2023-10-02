@@ -1,9 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-
 include("dbConnect.php");
-
 
 
 if(isset($_POST) and isset($_POST['student'])){
@@ -19,7 +17,7 @@ if(isset($_POST) and isset($_POST['student'])){
     $email = $_POST['email'];
 
 
-    $sql = "INSERT INTO students (name,roll,clases,section,address,mobile,email) VALUES ('$name','$Roll','$clases','$section','$address','$mobile','$email')";
+    $sql = "INSERT INTO students (name,Roll, clases, section,address,mobile,email) VALUES ('$name','$Roll','$clases','$section','$address','$mobile','$email')";
 
     if($conn->query($sql))
     {
