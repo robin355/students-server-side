@@ -3,7 +3,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 include("dbConnect.php");
 
-
 if(isset($_POST) and isset($_POST['student'])){
 
     $_POST = json_decode($_POST['student'],true);

@@ -3,7 +3,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("dbConnect.php");
-
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $sql = "DELETE FROM students WHERE id = $id";
