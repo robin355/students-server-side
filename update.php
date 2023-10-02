@@ -4,9 +4,11 @@ header("Access-Control-Allow-Headers: *");
 
 include("dbConnect.php");
 
-if(isset($_POST['id']) and (isset($_POST) and isset($_POST['student']))){
 
-        $_POST = json_decode($_POST['student'],true);
+
+if(isset($_GET['id'])){
+        if( (isset($_POST)) and count($_POST) > 0){
+
     
         $name = $_POST['name'];
         $Roll = $_POST['Roll'];
@@ -15,7 +17,7 @@ if(isset($_POST['id']) and (isset($_POST) and isset($_POST['student']))){
         $address = $_POST['address'];
         $mobile = $_POST['mobile'];
         $email = $_POST['email'];
-        $id = $_POST['id'];
+        $id = $_GET['id'];
 
         
         $sql = "UPDATE students SET
@@ -33,6 +35,13 @@ if(isset($_POST['id']) and (isset($_POST) and isset($_POST['student']))){
             "message" => "Failed to update student"
         ]);
     }
+}else{
+    echo json_encode([
+        'success' => false,
+        "message" => "not post data available",
+        "data" => $_POST
+    ]);
+}
 }else{
     echo json_encode([
         'success' => false,
